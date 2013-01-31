@@ -1,21 +1,20 @@
 /*
- * CharacterInfo.cpp
+ * Environment.cpp
  *
- *  Created on: 10/01/2013
+ *  Created on: 20/01/2013
  *      Author: Toby
  */
 
-#include "CharacterInfo.h"
+#include "Environment.h"
 
 namespace trevor {
 
-CharacterInfo::CharacterInfo()
-: m_level(0), m_xp(0), m_hp(0) {
+Environment::Environment() {
 	// TODO Auto-generated constructor stub
 
 }
 
-CharacterInfo::~CharacterInfo() {
+Environment::~Environment() {
 	// TODO Auto-generated destructor stub
 }
 

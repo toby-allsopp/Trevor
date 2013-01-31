@@ -1,21 +1,20 @@
 /*
- * CharacterInfo.cpp
+ * Position.cpp
  *
- *  Created on: 10/01/2013
+ *  Created on: 22/01/2013
  *      Author: Toby
  */
 
-#include "CharacterInfo.h"
+#include "Position.h"
 
 namespace trevor {
 
-CharacterInfo::CharacterInfo()
-: m_level(0), m_xp(0), m_hp(0) {
+Position::Position() {
 	// TODO Auto-generated constructor stub
 
 }
 
-CharacterInfo::~CharacterInfo() {
+Position::~Position() {
 	// TODO Auto-generated destructor stub
 }
 
