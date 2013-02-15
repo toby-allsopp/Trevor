@@ -9,7 +9,8 @@
 
 namespace trevor {
 
-Observation::Observation(std::shared_ptr<Observable> observable) : m_observable(observable) {
+Observation::Observation(const Position &position, std::shared_ptr<Observable> observable)
+: m_position(position), m_observable(observable) {
 	// TODO Auto-generated constructor stub
 
 }

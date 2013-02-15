@@ -9,7 +9,7 @@
 
 namespace trevor {
 
-Position::Position() {
+Position::Position(int _x, int _y) : x(_x), y(_y) {
 	// TODO Auto-generated constructor stub
 
 }

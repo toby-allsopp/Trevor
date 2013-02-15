@@ -17,7 +17,7 @@ namespace trevor {
 
 class Observation {
 public:
-	Observation(std::shared_ptr<Observable> observable);
+	Observation(const Position &position, std::shared_ptr<Observable> observable);
 	virtual ~Observation();
 
 	Position m_position;

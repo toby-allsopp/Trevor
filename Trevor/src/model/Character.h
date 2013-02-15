@@ -10,7 +10,12 @@
 
 #include "Observable.h"
 
+#include <memory>
+
 namespace trevor {
+
+class Brain;
+class World;
 
 class Character : public Observable {
 public:
@@ -18,6 +23,27 @@ public:
 	virtual ~Character() {
 		// TODO Auto-generated destructor stub
 	}
+
+	void setBrain(std::shared_ptr<Brain> brain) {
+		mBrain = brain;
+	}
+
+	int getInitiative() {
+		return 0;
+	}
+
+	void takeTurn(const World &world) {
+
+	}
+
+	// Observable
+
+	void observe(const Observer &observer) {
+		observer.observeCharacter(*this);
+	}
+
+private:
+	std::shared_ptr<Brain> mBrain;
 };
 
 } /* namespace trevor */

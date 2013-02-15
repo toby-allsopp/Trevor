@@ -12,7 +12,7 @@ namespace trevor {
 
 class Position {
 public:
-	Position();
+	Position(int _x, int _y);
 	virtual ~Position();
 
 	int x;

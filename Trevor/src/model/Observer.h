@@ -8,15 +8,15 @@
 #ifndef OBSERVER_H_
 #define OBSERVER_H_
 
-class Character;
-
 namespace trevor {
+
+class Character;
 
 class Observer {
 public:
 	virtual ~Observer() {}
 
-	virtual void observeCharacter(const Character &character) = 0;
+	virtual void observeCharacter(const Character &character) const = 0;
 	//virtual void observeContainer(const Container &container) = 0;
 };
 
