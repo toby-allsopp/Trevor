@@ -18,6 +18,8 @@ public:
 	virtual ~TextConsole() {
 		// TODO Auto-generated destructor stub
 	}
+
+	void print(const std::string &str);
 };
 
 } /* namespace trevor */

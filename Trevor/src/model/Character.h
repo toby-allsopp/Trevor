@@ -32,9 +32,7 @@ public:
 		return 0;
 	}
 
-	void takeTurn(const World &world) {
-
-	}
+	void takeTurn(World& world);
 
 	// Observable
 

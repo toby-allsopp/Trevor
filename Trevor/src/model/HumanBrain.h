@@ -16,7 +16,7 @@ namespace trevor {
 
 class Console;
 
-class HumanBrain: public trevor::Brain {
+class HumanBrain : public Brain {
 public:
 	HumanBrain();
 	virtual ~HumanBrain() {
@@ -27,8 +27,13 @@ public:
 		mConsole = console;
 	}
 
+	void takeTurn(World &world, Character &me);
+
 private:
 	std::shared_ptr<Console> mConsole;
+
+	class Observer;
+	friend class Observer;
 };
 
 } /* namespace trevor */

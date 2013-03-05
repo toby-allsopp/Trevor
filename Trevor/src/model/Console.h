@@ -8,6 +8,8 @@
 #ifndef CONSOLE_H_
 #define CONSOLE_H_
 
+#include <string>
+
 namespace trevor {
 
 class Console {
@@ -16,6 +18,8 @@ public:
 	virtual ~Console() {
 		// TODO Auto-generated destructor stub
 	}
+
+	virtual void print(const std::string &str) = 0;
 };
 
 } /* namespace trevor */

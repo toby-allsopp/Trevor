@@ -7,11 +7,17 @@
 
 #include "TextConsole.h"
 
+#include <iostream>
+
 namespace trevor {
 
 TextConsole::TextConsole() {
-	// TODO Auto-generated constructor stub
+	std::cerr << "TextConsole begin" << std::endl;
+}
 
+void TextConsole::print(const std::string &str)
+{
+	std::cerr << str << std::endl;
 }
 
 } /* namespace trevor */

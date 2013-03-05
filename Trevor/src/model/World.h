@@ -27,6 +27,8 @@ public:
 
 	void processTurn();
 
+	void visitContents(const Observer& observer);
+
 private:
 	std::vector<std::shared_ptr<Character>> mCharacters;
 };

@@ -32,4 +32,10 @@ void World::processTurn() {
 	}
 }
 
+void World::visitContents(const Observer& observer) {
+	for (const auto &c : mCharacters) {
+		observer.observeCharacter(*c);
+	}
+}
+
 } /* namespace trevor */
