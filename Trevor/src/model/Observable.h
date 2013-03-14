@@ -14,7 +14,9 @@ namespace trevor {
 
 class Observable {
 public:
-	virtual ~Observable() {};
+	virtual ~Observable() {
+	}
+	;
 
 	virtual void observe(const Observer &observer) = 0;
 };

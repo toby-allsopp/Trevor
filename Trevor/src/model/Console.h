@@ -20,6 +20,7 @@ public:
 	}
 
 	virtual void print(const std::string &str) = 0;
+	virtual void print(const char* fmt, ...) __attribute__((format(printf, 2, 3))) = 0;
 };
 
 } /* namespace trevor */

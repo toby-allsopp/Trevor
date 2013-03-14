@@ -6,11 +6,13 @@
  */
 
 #include "World.h"
+#include "Turn.h"
 
 namespace trevor {
 
 static struct CompareTurnOrder {
-	bool operator()(const std::shared_ptr<Character> &l, const std::shared_ptr<Character> &r) {
+	bool operator()(const std::shared_ptr<Character> &l,
+			const std::shared_ptr<Character> &r) {
 		return l->getInitiative() < r->getInitiative();
 	}
 } sCompareTurnOrder;
@@ -27,8 +29,9 @@ void World::addCharacter(std::shared_ptr<Character> character) {
 void World::processTurn() {
 	auto characters = mCharacters;
 	std::sort(characters.begin(), characters.end(), sCompareTurnOrder);
-	for (const auto& c : characters) {
-		c->takeTurn(*this);
+	for (const auto &c : characters) {
+		Turn turn(*this, mRules, c);
+		c->takeTurn(*this, turn);
 	}
 }
 

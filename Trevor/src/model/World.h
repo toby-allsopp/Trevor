@@ -9,6 +9,7 @@
 #define WORLD_H_
 
 #include "Character.h"
+#include "Rules.h"
 
 #include <algorithm>
 #include <memory>
@@ -30,6 +31,7 @@ public:
 	void visitContents(const Observer& observer);
 
 private:
+	Rules mRules;
 	std::vector<std::shared_ptr<Character>> mCharacters;
 };
 

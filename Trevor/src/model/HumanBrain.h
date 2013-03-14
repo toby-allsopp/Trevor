@@ -16,7 +16,7 @@ namespace trevor {
 
 class Console;
 
-class HumanBrain : public Brain {
+class HumanBrain: public Brain {
 public:
 	HumanBrain();
 	virtual ~HumanBrain() {
@@ -27,7 +27,11 @@ public:
 		mConsole = console;
 	}
 
-	void takeTurn(World &world, Character &me);
+	void takeDamage(const Character& attacker, int damage) override;
+
+	void onInflictedDamage(const Character& target, int damage) override;
+
+	void takeTurn(World &world, Turn &turn, Character &me) override;
 
 private:
 	std::shared_ptr<Console> mConsole;

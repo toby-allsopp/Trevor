@@ -11,6 +11,7 @@
 namespace trevor {
 
 class Character;
+class Turn;
 class World;
 
 class Brain {
@@ -20,7 +21,11 @@ public:
 		// TODO Auto-generated destructor stub
 	}
 
-	virtual void takeTurn(World &world, Character &me) = 0;
+	virtual void takeDamage(const Character& attacker, int damage) = 0;
+
+	virtual void onInflictedDamage(const Character& target, int damage) = 0;
+
+	virtual void takeTurn(World &world, Turn &turn, Character &me) = 0;
 };
 
 } /* namespace trevor */

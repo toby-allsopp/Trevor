@@ -14,7 +14,15 @@ MonsterBrain::MonsterBrain() {
 
 }
 
-void MonsterBrain::takeTurn(World &world, Character &me) {
+void MonsterBrain::takeDamage(const Character& attacker, int damage) {
+	//mConsole->print("Yelp!");
+}
+
+void MonsterBrain::onInflictedDamage(const Character& target, int damage) {
+	//mConsole->print("Roar!");
+}
+
+void MonsterBrain::takeTurn(World &world, Turn &turn, Character &me) {
 }
 
 } /* namespace trevor */

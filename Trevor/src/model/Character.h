@@ -8,6 +8,7 @@
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
 
+#include "Dice.h"
 #include "Observable.h"
 
 #include <memory>
@@ -15,9 +16,10 @@
 namespace trevor {
 
 class Brain;
+class Turn;
 class World;
 
-class Character : public Observable {
+class Character: public Observable {
 public:
 	Character();
 	virtual ~Character() {
@@ -32,7 +34,17 @@ public:
 		return 0;
 	}
 
-	void takeTurn(World& world);
+	int getAttackPoints() { return 10; }
+
+	int getDefensePoints() { return 10; }
+
+	int getAttackDamage(Dice &dice) { return dice.d6(); }
+
+	void takeDamage(const Character& attacker, int damage);
+
+	void onInflictedDamage(const Character& target, int damage);
+
+	void takeTurn(World& world, Turn &turn);
 
 	// Observable
 

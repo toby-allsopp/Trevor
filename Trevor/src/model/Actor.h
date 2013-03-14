@@ -14,11 +14,12 @@ namespace trevor {
 
 class Actor {
 public:
-	virtual ~Actor() {};
+	virtual ~Actor() {
+	}
+	;
 	virtual void act(const Environment &env) = 0;
 };
 
 }
-
 
 #endif /* ACTOR_H_ */

@@ -19,9 +19,9 @@ int main()
 {
 	std::cout << "Start\n";
 	World w;
-	std::shared_ptr<Character> c(new Character);
-	std::shared_ptr<HumanBrain> brain(new HumanBrain);
-	std::shared_ptr<TextConsole> console(new TextConsole);
+	auto c = std::make_shared<Character>();
+	auto brain = std::make_shared<HumanBrain>();
+	auto console = std::make_shared<TextConsole>();
 	brain->setConsole(console);
 	c->setBrain(brain);
 	w.addCharacter(c);

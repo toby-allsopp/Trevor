@@ -16,8 +16,16 @@ Character::Character() {
 
 }
 
-void Character::takeTurn(World& world) {
-	mBrain->takeTurn(world, *this);
+void Character::takeDamage(const Character& attacker, int damage) {
+	mBrain->takeDamage(attacker, damage);
+}
+
+void Character::onInflictedDamage(const Character& target, int damage) {
+	mBrain->onInflictedDamage(target, damage);
+}
+
+void Character::takeTurn(World& world, Turn &turn) {
+	mBrain->takeTurn(world, turn, *this);
 }
 
 } /* namespace trevor */

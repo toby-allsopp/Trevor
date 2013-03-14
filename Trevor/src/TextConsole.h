@@ -20,6 +20,8 @@ public:
 	}
 
 	void print(const std::string &str);
+	void print(const char* fmt, ...);
+
 };
 
 } /* namespace trevor */

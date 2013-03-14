@@ -19,7 +19,11 @@ public:
 		// TODO Auto-generated destructor stub
 	}
 
-	void takeTurn(World &world, Character &me);
+	void takeDamage(const Character& attacker, int damage) override;
+
+	void onInflictedDamage(const Character& target, int damage) override;
+
+	void takeTurn(World &world, Turn &turn, Character &me) override;
 
 };
 

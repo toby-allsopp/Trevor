@@ -9,8 +9,8 @@
 
 namespace trevor {
 
-CharacterInfo::CharacterInfo()
-: m_level(0), m_xp(0), m_hp(0) {
+CharacterInfo::CharacterInfo() :
+		m_level(0), m_xp(0), m_hp(0) {
 	// TODO Auto-generated constructor stub
 
 }
