@@ -33,10 +33,6 @@ void HumanBrain::takeDamage(const Character& attacker, int damage) {
 	mConsole->print("Ouch! Took %d damage", damage);
 }
 
-void HumanBrain::onInflictedDamage(const Character& target, int damage) {
-	mConsole->print("Take that! Inflicted %d damage", damage);
-}
-
 void HumanBrain::takeTurn(World &world, Turn &turn, Character &me) {
 	Observer observer(*this, turn, me);
 	world.visitContents(observer);
@@ -47,8 +43,14 @@ void HumanBrain::Observer::observeCharacter(Character &character) const {
 		mHumanBrain.mConsole->print("You see yourself!");
 	} else {
 		mHumanBrain.mConsole->print("You see a character!");
-		if (mTurn.attack(character)) {
+		auto result = mTurn.attack(character);
+		if (result.mPossible) {
 			mHumanBrain.mConsole->print("Attacked it!");
+			if (result.mHit) {
+				mHumanBrain.mConsole->print("Take that! Inflicted %d damage", result.mDamage);
+			} else {
+				mHumanBrain.mConsole->print("Missed.");
+			}
 		} else {
 			mHumanBrain.mConsole->print("Couldn't attack it :(");
 		}

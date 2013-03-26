@@ -18,7 +18,7 @@ Turn::Turn(World &world, const Rules &rules, std::shared_ptr<Character> characte
 
 }
 
-bool Turn::attack(Character& foe) {
+AttackResult Turn::attack(Character& foe) {
 	return mRules.attack(*mCharacter, foe);
 }
 

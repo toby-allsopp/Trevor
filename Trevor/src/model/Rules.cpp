@@ -15,17 +15,19 @@ Rules::Rules() {
 
 }
 
-bool Rules::attack(Character& attacker, Character& target) const {
+AttackResult Rules::attack(Character& attacker, Character& target) const {
 	int attackPoints = attacker.getAttackPoints();
 	int defensePoints = target.getDefensePoints();
 	int roll = mDice.d20();
 	if (roll == 20 || attackPoints + roll > defensePoints) {
 		// Hit!
 		int damage = attacker.getAttackDamage(mDice);
-		attacker.onInflictedDamage(target, damage);
 		target.takeDamage(attacker, damage);
+		return AttackResult::hit(damage);
+	} else {
+		// Miss.
+		return AttackResult::miss();
 	}
-	return true;
 }
 
 } /* namespace trevor */

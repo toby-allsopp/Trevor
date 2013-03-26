@@ -8,12 +8,13 @@
 #ifndef TURN_H_
 #define TURN_H_
 
+#include "Rules.h"
+
 #include <memory>
 
 namespace trevor {
 
 class Character;
-class Rules;
 class World;
 
 class Turn {
@@ -28,7 +29,7 @@ public:
 	 * @param foe
 	 * @return whether the attack was possible
 	 */
-	bool attack(Character& foe);
+	AttackResult attack(Character& foe);
 
 private:
 	World &mWorld;

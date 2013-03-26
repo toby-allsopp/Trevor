@@ -29,8 +29,6 @@ public:
 
 	void takeDamage(const Character& attacker, int damage) override;
 
-	void onInflictedDamage(const Character& target, int damage) override;
-
 	void takeTurn(World &world, Turn &turn, Character &me) override;
 
 private:

@@ -6,20 +6,17 @@
  */
 
 #include "MonsterBrain.h"
+#include "Console.h"
 
 namespace trevor {
 
-MonsterBrain::MonsterBrain() {
+MonsterBrain::MonsterBrain(std::unique_ptr<Console> console) : mConsole(std::move(console)) {
 	// TODO Auto-generated constructor stub
 
 }
 
 void MonsterBrain::takeDamage(const Character& attacker, int damage) {
-	//mConsole->print("Yelp!");
-}
-
-void MonsterBrain::onInflictedDamage(const Character& target, int damage) {
-	//mConsole->print("Roar!");
+	mConsole->print("Yelp!");
 }
 
 void MonsterBrain::takeTurn(World &world, Turn &turn, Character &me) {

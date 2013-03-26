@@ -14,7 +14,7 @@ namespace trevor {
 
 class TextConsole: public trevor::Console {
 public:
-	TextConsole();
+	TextConsole(const std::string &name);
 	virtual ~TextConsole() {
 		// TODO Auto-generated destructor stub
 	}
@@ -22,6 +22,8 @@ public:
 	void print(const std::string &str);
 	void print(const char* fmt, ...);
 
+private:
+	std::string mName;
 };
 
 } /* namespace trevor */

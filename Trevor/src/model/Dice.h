@@ -14,9 +14,7 @@ namespace trevor {
 
 class Dice {
 public:
-	Dice() : dist_d6(1, 6), dist_d20(1, 20) {
-		;
-	}
+	Dice();
 	virtual ~Dice() {
 		// TODO Auto-generated destructor stub
 	}

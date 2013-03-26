@@ -14,6 +14,16 @@ namespace trevor {
 
 class Character;
 
+class AttackResult {
+public:
+	static AttackResult notPossible() { return AttackResult { false, false, 0 }; }
+	static AttackResult miss() { return AttackResult { true, false, 0 }; }
+	static AttackResult hit(int damage) { return AttackResult { true, true, damage }; }
+	bool mPossible;
+	bool mHit;
+	int mDamage;
+};
+
 class Rules {
 public:
 	Rules();
@@ -21,7 +31,7 @@ public:
 		// TODO Auto-generated destructor stub
 	}
 
-	bool attack(Character& attacker, Character& target) const;
+	AttackResult attack(Character& attacker, Character& target) const;
 
 private:
 	mutable Dice mDice;

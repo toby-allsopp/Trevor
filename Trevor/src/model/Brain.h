@@ -23,8 +23,6 @@ public:
 
 	virtual void takeDamage(const Character& attacker, int damage) = 0;
 
-	virtual void onInflictedDamage(const Character& target, int damage) = 0;
-
 	virtual void takeTurn(World &world, Turn &turn, Character &me) = 0;
 };
 

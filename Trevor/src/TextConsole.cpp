@@ -13,11 +13,12 @@
 
 namespace trevor {
 
-TextConsole::TextConsole() {
-	std::cerr << "TextConsole begin" << std::endl;
+TextConsole::TextConsole(const std::string &name) : mName(name) {
+	std::cerr << mName << ": TextConsole begin" << std::endl;
 }
 
 void TextConsole::print(const char* fmt, ...) {
+	std::fprintf(stderr, "%s: ", mName.c_str());
 	std::va_list args;
 	va_start(args, fmt);
 	std::vfprintf(stderr, fmt, args);
@@ -27,7 +28,7 @@ void TextConsole::print(const char* fmt, ...) {
 
 void TextConsole::print(const std::string &str)
 {
-	std::cerr << str << std::endl;
+	print("%s", str.c_str());
 }
 
 } /* namespace trevor */

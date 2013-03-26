@@ -10,21 +10,22 @@
 
 #include "Brain.h"
 
+#include <memory>
+
 namespace trevor {
+
+class Console;
 
 class MonsterBrain: public trevor::Brain {
 public:
-	MonsterBrain();
-	virtual ~MonsterBrain() {
-		// TODO Auto-generated destructor stub
-	}
+	MonsterBrain(std::unique_ptr<Console> console);
 
 	void takeDamage(const Character& attacker, int damage) override;
 
-	void onInflictedDamage(const Character& target, int damage) override;
-
 	void takeTurn(World &world, Turn &turn, Character &me) override;
 
+private:
+	std::unique_ptr<Console> mConsole;
 };
 
 } /* namespace trevor */
