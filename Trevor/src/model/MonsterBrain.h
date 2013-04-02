@@ -9,6 +9,7 @@
 #define MONSTERBRAIN_H_
 
 #include "Brain.h"
+#include "Observer.h"
 
 #include <memory>
 
@@ -16,11 +17,14 @@ namespace trevor {
 
 class Console;
 
-class MonsterBrain: public trevor::Brain {
+class MonsterBrain: public Brain {
 public:
 	MonsterBrain(std::unique_ptr<Console> console);
 
-	void takeDamage(const Character& attacker, int damage) override;
+	// Brain
+
+	void takeDamage(Character &me, const Character& attacker, int damage)
+			override;
 
 	void takeTurn(World &world, Turn &turn, Character &me) override;
 

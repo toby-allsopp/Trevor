@@ -21,13 +21,25 @@ class World;
 
 class Character: public Observable {
 public:
-	Character();
+	Character(const std::string &name);
 	virtual ~Character() {
 		// TODO Auto-generated destructor stub
 	}
 
+	std::string getName() const {
+		return mName;
+	}
+
 	void setBrain(std::shared_ptr<Brain> brain) {
 		mBrain = brain;
+	}
+
+	int getMaxHP() const {
+		return mMaxHP;
+	}
+
+	void setMaxHP(int maxHP) {
+		mMaxHP = maxHP;
 	}
 
 	int getHP() const {
@@ -70,14 +82,16 @@ public:
 
 	// Observable
 
-	void observe(const Observer &observer) {
+	void observe(Observer &observer) override {
 		observer.observeCharacter(*this);
 	}
 
 private:
+	std::string mName;
 	std::shared_ptr<Brain> mBrain;
 	int mLevel;
 	int mXP;
+	int mMaxHP;
 	int mHP;
 };
 

@@ -30,12 +30,14 @@ void World::processTurn() {
 	auto characters = mCharacters;
 	std::sort(characters.begin(), characters.end(), sCompareTurnOrder);
 	for (const auto &c : characters) {
-		Turn turn(*this, mRules, c);
-		c->takeTurn(*this, turn);
+		if (c->getHP() > 0) {
+			Turn turn(*this, mRules, c);
+			c->takeTurn(*this, turn);
+		}
 	}
 }
 
-void World::visitContents(const Observer& observer) {
+void World::visitContents(Observer& observer) {
 	for (const auto &c : mCharacters) {
 		observer.observeCharacter(*c);
 	}

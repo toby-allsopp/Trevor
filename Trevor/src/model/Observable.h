@@ -18,7 +18,7 @@ public:
 	}
 	;
 
-	virtual void observe(const Observer &observer) = 0;
+	virtual void observe(Observer &observer) = 0;
 };
 
 } /* namespace trevor */

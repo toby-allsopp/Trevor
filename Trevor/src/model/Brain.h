@@ -21,7 +21,7 @@ public:
 		// TODO Auto-generated destructor stub
 	}
 
-	virtual void takeDamage(const Character& attacker, int damage) = 0;
+	virtual void takeDamage(Character &me, const Character& attacker, int damage) = 0;
 
 	virtual void takeTurn(World &world, Turn &turn, Character &me) = 0;
 };

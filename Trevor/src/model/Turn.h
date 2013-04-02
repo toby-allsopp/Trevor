@@ -25,6 +25,12 @@ public:
 	}
 
 	/**
+	 * Is this turn finished?
+	 * @return
+	 */
+	bool finished() const;
+
+	/**
 	 *
 	 * @param foe
 	 * @return whether the attack was possible
@@ -35,6 +41,7 @@ private:
 	World &mWorld;
 	const Rules &mRules;
 	std::shared_ptr<Character> mCharacter;
+	bool mFinished;
 };
 
 } /* namespace trevor */

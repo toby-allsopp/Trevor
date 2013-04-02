@@ -27,7 +27,7 @@ public:
 		mConsole = console;
 	}
 
-	void takeDamage(const Character& attacker, int damage) override;
+	void takeDamage(Character &me, const Character& attacker, int damage) override;
 
 	void takeTurn(World &world, Turn &turn, Character &me) override;
 

@@ -11,13 +11,13 @@
 
 namespace trevor {
 
-Character::Character() {
-	// TODO Auto-generated constructor stub
-
+Character::Character(const std::string &name) :
+		mName(name), mLevel(1), mXP(0), mMaxHP(6), mHP(mMaxHP) {
 }
 
 void Character::takeDamage(const Character& attacker, int damage) {
-	mBrain->takeDamage(attacker, damage);
+	mHP -= damage;
+	mBrain->takeDamage(*this, attacker, damage);
 }
 
 void Character::takeTurn(World& world, Turn &turn) {

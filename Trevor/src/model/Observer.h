@@ -17,7 +17,7 @@ public:
 	virtual ~Observer() {
 	}
 
-	virtual void observeCharacter(Character &character) const = 0;
+	virtual void observeCharacter(Character &character) = 0;
 	//virtual void observeContainer(const Container &container) = 0;
 };
 

@@ -28,7 +28,7 @@ public:
 
 	void processTurn();
 
-	void visitContents(const Observer& observer);
+	void visitContents(Observer& observer);
 
 private:
 	Rules mRules;

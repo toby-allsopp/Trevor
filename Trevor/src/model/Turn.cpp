@@ -10,16 +10,25 @@
 
 namespace trevor {
 
-Turn::Turn(World &world, const Rules &rules, std::shared_ptr<Character> character) :
-		mWorld(world),
-		mRules(rules),
-		mCharacter(character) {
+Turn::Turn(World &world, const Rules &rules,
+		std::shared_ptr<Character> character) :
+		mWorld(world), mRules(rules), mCharacter(character), mFinished(false) {
 	// TODO Auto-generated constructor stub
 
 }
 
+bool Turn::finished() const {
+	return mFinished;
+}
 AttackResult Turn::attack(Character& foe) {
-	return mRules.attack(*mCharacter, foe);
+	if (mFinished) {
+		return AttackResult::notPossible();
+	}
+	const AttackResult &result = mRules.attack(*mCharacter, foe);
+	if (result.mPossible) {
+		mFinished = true;
+	}
+	return result;
 }
 
 } /* namespace trevor */

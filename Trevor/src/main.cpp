@@ -13,21 +13,32 @@
 #include "utils.h"
 
 #include <iostream>
+#include <sstream>
 
 using namespace trevor;
 
-int main()
-{
+int main() {
 	World w;
-	auto c = std::make_shared<Character>();
+	auto c = std::make_shared<Character>("You");
 	auto brain = std::make_shared<HumanBrain>();
 	auto youConsole = std::make_shared<TextConsole>("You");
 	brain->setConsole(youConsole);
 	c->setBrain(brain);
+	c->setMaxHP(12);
+	c->setHP(c->getMaxHP());
 	w.addCharacter(c);
-	auto monster = std::make_shared<Character>();
-	monster->setBrain(std::make_shared<MonsterBrain>(make_unique<TextConsole>("Monster")));
-	w.addCharacter(monster);
-	w.processTurn();
+	for (int i = 0; i < 2; ++i) {
+		std::ostringstream nameStream;
+		nameStream << "Monster " << i;
+		auto name = nameStream.str();
+		auto monster = std::make_shared<Character>(name);
+		monster->setBrain(
+				std::make_shared<MonsterBrain>(
+						make_unique<TextConsole>(name)));
+		w.addCharacter(monster);
+	}
+	while (c->getHP() > 0) {
+		w.processTurn();
+	}
 	return 0;
 }
