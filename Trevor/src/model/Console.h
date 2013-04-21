@@ -20,7 +20,11 @@ public:
 	}
 
 	virtual void print(const std::string &str) = 0;
-	virtual void print(const char* fmt, ...) __attribute__((format(printf, 2, 3))) = 0;
+	virtual void print(const char* fmt, ...)
+#ifdef __GNUC
+		__attribute__((format(printf, 2, 3)))
+#endif
+		= 0;
 };
 
 } /* namespace trevor */

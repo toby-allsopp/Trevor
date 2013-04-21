@@ -16,9 +16,18 @@ class Character;
 
 class AttackResult {
 public:
-	static AttackResult notPossible() { return AttackResult { false, false, 0 }; }
-	static AttackResult miss() { return AttackResult { true, false, 0 }; }
-	static AttackResult hit(int damage) { return AttackResult { true, true, damage }; }
+	static AttackResult notPossible() {
+		AttackResult r = { false, false, 0 };
+		return r;
+	}
+	static AttackResult miss() {
+		AttackResult r = { true, false, 0 };
+		return r;
+	}
+	static AttackResult hit(int damage) {
+		AttackResult r = { true, true, damage };
+		return r;
+	}
 	bool mPossible;
 	bool mHit;
 	int mDamage;

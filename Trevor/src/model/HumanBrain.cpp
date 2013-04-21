@@ -55,6 +55,9 @@ void HumanBrain::Observer::observeCharacter(Character &character) {
 		mHumanBrain.mConsole->print("You see %s!", character.getName().c_str());
 		mHumanBrain.mConsole->print("It has %d/%d HP", character.getHP(),
 				character.getMaxHP());
+		if (mTurn.finished()) {
+			return;
+		}
 		if (character.getHP() > 0) {
 			mSawSomeoneElseAlive = true;
 			auto result = mTurn.attack(character);
